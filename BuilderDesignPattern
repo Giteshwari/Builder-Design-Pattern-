@@ -1,0 +1,68 @@
+package BuilderDesignPattern;
+
+class Vehicle{
+    private String engine;
+    private int wheels;
+
+    private int airbags;     //optional parameter
+
+    public String getEngine() {
+        return engine;
+    }
+
+    public int getWheels() {
+        return wheels;
+    }
+
+    public int getAirbags() {
+        return airbags;
+    }
+
+    private Vehicle(VehicleBuilder builder){
+        this.engine = builder.engine;
+        this.wheels = builder.wheels;
+        this.airbags = builder.airbags;
+    }
+
+    public static class VehicleBuilder{
+        private String engine;
+        private int wheels;
+
+        private int airbags;
+
+        public VehicleBuilder(String engine, int wheels) {
+            this.engine = engine;
+            this.wheels = wheels;
+        }
+
+        public VehicleBuilder setAirbags(int airbags){
+            this.airbags = airbags;
+            return this;
+        }
+
+        public Vehicle build(){
+            return new Vehicle(this);
+        }
+
+    }
+
+    @Override
+    public String toString() {
+        return "Vehicle{" +
+                "engine='" + engine + '\'' +
+                ", wheels=" + wheels +
+                ", airbags=" + airbags +
+                '}';
+    }
+}
+
+public class BuilderDesignPattern {
+
+    public static void main(String[] args) {
+        Vehicle car = new Vehicle.VehicleBuilder("1500cc",4).setAirbags(4).build();
+        Vehicle bike = new Vehicle.VehicleBuilder("2500cc",2).build();
+
+        System.out.println(car);
+        System.out.println(bike);
+    }
+}

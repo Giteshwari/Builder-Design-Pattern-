@@ -1,0 +1,10 @@
+Decorator Design Pattern :
+⦁	It is one of the structural design pattern.
+⦁	It allows us to dynamically add functionality and behaviour to an object without affecting the behaviour of other objects within the same class. 
+
+Advantages : 
+⦁	Decorator design pattern is useful in providing runtime modification abilities and hence more flexible. 
+⦁	It’s easy to maintain and extend when the amount of choices are more.
+
+Disadvantages :  
+⦁	 It uses plenty of similar kind of objects (decorators).
